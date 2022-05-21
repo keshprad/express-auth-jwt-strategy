@@ -21,8 +21,12 @@ passport.use(jwtStrategy);
 app.use(passport.initialize());
 
 // Routes
-const { authRouter }: { authRouter: Router } = require('./routes');
+const {
+  authRouter,
+  dashboardRouter,
+}: { authRouter: Router; dashboardRouter: Router } = require('./routes');
 app.use('/auth', authRouter);
+app.use('/dashboard', dashboardRouter);
 
 // Default Route
 app.get('/', async (req, res) => {

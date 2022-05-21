@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
+const passport = require('passport');
 const passportJwt = require('passport-jwt');
 const ExtractJwt = passportJwt.ExtractJwt;
 const JwtStrategy = passportJwt.Strategy;
@@ -7,7 +8,7 @@ import { User } from '../models';
 import { findUserByID } from '../database';
 
 let jwtOptions: any = {};
-jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme('JWT');
 jwtOptions.secretOrKey = process.env.SECRET;
 
 const jwtStrategy = new JwtStrategy(jwtOptions, function (jwtPayload, next) {
@@ -27,4 +28,6 @@ const jwtStrategy = new JwtStrategy(jwtOptions, function (jwtPayload, next) {
     });
 });
 
-module.exports = { jwtOptions, jwtStrategy };
+const authenticateJwt = passport.authenticate('jwt', { session: false });
+
+module.exports = { jwtOptions, jwtStrategy, authenticateJwt };
