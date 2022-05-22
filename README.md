@@ -52,8 +52,7 @@ A basic express app for authorizing users with JWT strategy.
 
    On Postman, make a `GET` request to http://localhost:3030/dashboard/user/
 
-   - The request should have an authorization header
-     - Create a header with
-       - key: `Authorization`
-       - value: `JWT <jwt-from-login-post-request>`
+   - Create a header with
+     - key: `Authorization`
+     - value: `JWT <jwt-from-login-post-request>`
    - This should return an object representing the user information.
