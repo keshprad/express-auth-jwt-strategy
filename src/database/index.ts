@@ -20,7 +20,7 @@ const users: User[] = [
     lastName: 'Smith',
     age: 21,
     dob: new Date(2000, 11, 14),
-    gender: 'male',
+    gender: 'female',
   },
 ];
 
