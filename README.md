@@ -2,6 +2,8 @@
 
 A basic express app for authorizing users with JWT strategy.
 
+**After cloning repo and changing to directory**
+
 1. **Install Dependencies**
 
    ```bash
